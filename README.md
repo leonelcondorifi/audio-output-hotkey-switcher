@@ -44,11 +44,20 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\Setup-AudioHotkey.ps1"
 
 El script:
 
-- lista los outputs detectados,
-- pide los indices a usar para switch,
+- abre una seleccion interactiva con checkboxes en consola,
+- permite marcar/desmarcar dispositivos con teclado,
 - pide hotkey (opcional; Enter para `Win+O`),
 - guarda `AudioSwitcher.Config.json`,
 - instala/reinicia la tarea `AudioOutputHotkeySwitcher`.
+
+Controles en la seleccion interactiva:
+
+- `Arriba/Abajo`: mover cursor
+- `Espacio`: marcar/desmarcar
+- `Enter`: confirmar seleccion (minimo 2)
+- `Esc`: cancelar
+
+Si la consola no soporta modo interactivo (por ejemplo, I/O redirigido), el setup hace fallback automatico al modo por indices.
 
 ## Como funciona el switch con N dispositivos
 
